@@ -412,6 +412,7 @@
 				53E1424A1A32BA8700625534 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53E1424B1A32BA8700625534 /* Build configuration list for PBXNativeTarget "HomeMakerKitTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				53E1424D1A32BA8700625534 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
