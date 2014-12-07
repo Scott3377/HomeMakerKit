@@ -4,6 +4,7 @@ POST                 {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-
 POST                 {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Heat"],"I":5}
                     
 POST                 {"H":"thermostat-v1","M":"SetFanMode","A":["36-6f-92-ff-fe-00-b2-b4","Auto"],"I":13}
+POST                 {"H":"thermostat-v1","M":"SetCool","A":["36-6f-92-ff-fe-00-b2-b4",47,"F"],"I":27}
 POST                 {"H":"thermostat-v1","M":"SetScheduleActive","A":["36-6f-92-ff-fe-00-b2-b4",null],"I":14} 
 POST                 {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Cool"],"I":15}
 POST                 {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Auto"],"I":17}
