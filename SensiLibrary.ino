@@ -6,64 +6,6 @@
 #include <EthernetUdp.h>
 #include <SPI.h>
 
-/*
-
-// assign a MAC address for the ethernet controller.
-// fill in your address here:
-byte mac[] = { 
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
-// fill in an available IP address on your network here,
-// for manual configuration:
-IPAddress ip(192,168,0,19);
-
-// fill in your Domain Name Server address here:
-IPAddress myDns(1,1,1,1);
-
-char server[] = "www.google.com";
-
-void setup() {
-  // start serial port:
-  Serial.begin(9600);
-  // give the ethernet module time to boot up:
-  delay(1000);
-  // start the Ethernet connection using a fixed IP address and DNS server:
-  Ethernet.begin(mac, ip, myDns);
-  // print the Ethernet board/shield's IP address:
-  Serial.print("My IP address: ");
-  Serial.println(Ethernet.localIP());
-}
-
-void loop() {
-  // if there's incoming data from the net connection.
-  // send it out the serial port.  This is for debugging
-  // purposes only:
-  if (client.available()) {
-    char c = client.read();
-    Serial.print(c);
-  }
-
-  // if there's no net connection, but there was one last time
-  // through the loop, then stop the client:
-  if (!client.connected() && lastConnected) {
-    Serial.println();
-    Serial.println("disconnecting.");
-    client.stop();
-  }
-
-  // if you're not connected, and ten seconds have passed since
-  // your last connection, then connect again and send data:
-  if(!client.connected() && (millis() - lastConnectionTime > postingInterval)) {
-    httpRequest();
-  }
-  // store the state of the connection for next time through
-  // the loop:
-  lastConnected = client.connected();
-}
-
-*/
-
-
-
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = {
@@ -74,14 +16,14 @@ IPAddress ip(192, 168, 0, 19);
 // Initialize the Ethernet server library
 // with the IP address and port you want to use
 // (port 80 is default for HTTP):
-EthernetServer server(80);
+//EthernetServer server(80);
 
-//char sensiServer[] = "bussrvstg.sensicomfort.com";
-//char sensiPage[] = "/api/authorize";
-//char sensiAuthorizeJSON[] = "{\"UserName\":\"team19@globalhack.com\",\"Password\":\"globalhack\"}";
-char sensiServer[] = "bussrvstg.sensicomfort.com/api/authorize";
-char sensiPage[] = "/";
-char sensiAuthorizeJSON[] = "UserName=team19@globalhack.com&Password=globalhack";
+char sensiServer[] = "bussrvstg.sensicomfort.com";
+char sensiPage[] = "/api/authorize";
+char sensiAuthorizeJSON[] = "{\"UserName\":\"team19@globalhack.com\", \"Password\":\"globalhack\"}";
+//char sensiServer[] = "bussrvstg.sensicomfort.com/api/authorize";
+//char sensiPage[] = "/";
+//char sensiAuthorizeJSON[] = "UserName=team19@globalhack.com&Password=globalhack";
 
 // incoming/outgoing client instances:
 //EthernetClient incomingClient;
@@ -104,7 +46,7 @@ void setup() {
   
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip);
-  server.begin();
+  //server.begin();
   Serial.print("Server Arduino Uno started at IP address ");
   Serial.println(Ethernet.localIP());
   
@@ -120,6 +62,7 @@ void loop() {
   // maintain for DHCP
   //Ethernet.maintain();
 
+/*
   // listen for incoming clients
   EthernetClient incomingClient = server.available();
   if (incomingClient) {
@@ -171,11 +114,11 @@ void loop() {
     incomingClient.stop();
     Serial.println("incomingClient disconnected");
   }
-  
+*/  
   
   // if there's incoming data from our outgoing client net connection.
   // send it to the serial port. 
-  EthernetClient outgoingClient = server.available();
+  //EthernetClient outgoingClient = server.available();
   if (outgoingClient.available()) {
     char c = outgoingClient.read();
     Serial.print(c);
@@ -229,7 +172,6 @@ void httpGetRequest() {
 // this method makes a HTTP connection to a server:
 void httpPostRequest() {
   // if there's a successful connection:
-  EthernetClient outgoingClient = server.available();
   if (outgoingClient.connect(sensiServer, 80)) {
     Serial.print("Connected to sensiServer... ");
     Serial.print(sensiServer);
@@ -237,32 +179,27 @@ void httpPostRequest() {
     // send the HTTP POST request:
     Serial.println("Sending authorization request...");
     char outBuf[128];
-    sprintf(outBuf,"POST %s HTTP/1.2",sensiPage);
+    sprintf(outBuf,"POST %s HTTP/1.1",sensiPage);
     outgoingClient.println(outBuf);
     Serial.println(outBuf);
     sprintf(outBuf,"Host: %s",sensiServer);
     outgoingClient.println(outBuf);
     Serial.println(outBuf);
-
-//    outgoingClient.println("POST  HTTP/1.2");
-//    Serial.println("POST /latest.txt HTTP/1.2");
-//    outgoingClient.println("Host: bussrvstg.sensicomfort.com/api/authorize");
-//    Serial.println("Host: bussrvstg.sensicomfort.com/api/authorize");
-    outgoingClient.println("Accept:application/json;version=1");
-    Serial.println("Accept:application/json;version=1");
-    outgoingClient.println("Connection: close");
-    Serial.println("Connection: close");
-    //outgoingClient.println("User-Agent: Arduino/1.0");
-    //Serial.println("User-Agent: Arduino/1.0");
-    outgoingClient.println("Content-Type:application/json");
-    Serial.println("Content-Type:application/json");
+    outgoingClient.println("Accept:application/json;version = 1");
+    Serial.println("Accept:application/json;version = 1");
+    outgoingClient.println("Connection: keep-alive");
+    Serial.println("Connection: keep-alive");
+    outgoingClient.println("User-Agent: Arduino/1.0");
+    Serial.println("User-Agent: Arduino/1.0");
+    outgoingClient.println("Content-Type:application/json;charset=UTF-8");
+    Serial.println("Content-Type:application/json;charset=UTF-8");
     sprintf(outBuf,"Content-Length: %u",strlen(sensiAuthorizeJSON));
     outgoingClient.println(outBuf);
     Serial.println(outBuf);
     outgoingClient.println();
     Serial.println();
-    outgoingClient.print(sensiAuthorizeJSON);
-    Serial.print(sensiAuthorizeJSON);
+    outgoingClient.println(sensiAuthorizeJSON);
+    Serial.println(sensiAuthorizeJSON);
     outgoingClient.println();
     Serial.println();
     
