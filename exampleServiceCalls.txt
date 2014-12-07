@@ -1,0 +1,39 @@
+		     {"H":"thermostat-v1","M":"SetFanMode","A":["36-6f-92-ff-fe-00-b2-b4","Auto"],"I":4}
+                     {"H":"thermostat-v1","M":"SetFanMode","A":["36-6f-92-ff-fe-00-b2-b4","On"],"I":3}
+                     {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Heat"],"I":5}
+                     {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Heat"],"I":5}
+                      
+                     {"H":"thermostat-v1","M":"SetFanMode","A":["36-6f-92-ff-fe-00-b2-b4","Auto"],"I":13}
+                     {"H":"thermostat-v1","M":"SetScheduleActive","A":["36-6f-92-ff-fe-00-b2-b4",null],"I":14} 
+                     {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Cool"],"I":15}
+                     {"H":"thermostat-v1","M":"SetSystemMode","A":["36-6f-92-ff-fe-00-b2-b4","Auto"],"I":17}
+                     {"H":"thermostat-v1","M":"SetScheduleMode","A":["36-6f-92-ff-fe-00-b2-b4","On"],"I":18}
+                     {"H":"thermostat-v1","M":"SetScheduleMode","A":["36-6f-92-ff-fe-00-b2-b4","Off"],"I":19}
+                     {"H":"thermostat-v1","M":"SetAutoHeat","A":["36-6f-92-ff-fe-00-b2-b4",35,"C"],"I":17}
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","Degrees","F"],"I":18} 
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","LocalHumidityDisplay","On"],"I":19}
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","LocalTimeDisplay","Off"],"I":20}
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","ContinuousBacklight","On"],"I":21}
+                     {"H":"thermostat-v1","M":"SetHeat","A":["36-6f-92-ff-fe-00-b2-b4",88,"F"],"I":32}
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","CompressorLockout","On"],"I":22}   --sets a buffer for turning on AC to protect equipment
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","FastSecondStageHeat","Off"],"I":4}  --heat boost off
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","FastSecondStageCool","On"],"I":6}   --cool boost on 
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","HeatCycleRate","Fast"],"I":7}  -Fast, Slow, Medium
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","CoolCycleRate","Slow"],"I":8}  -Fast, Slow, Medium
+                     {"H":"thermostat-v1","M":"ChangeSetting","A":["36-6f-92-ff-fe-00-b2-b4","ComfortRecovery","On"],"I":9}  -Early Start is a feature that turns heating or cooling on early to get you to the temperature you want at the time you want it from your Sensi schedule.
+                   
+                      {"H":"thermostat-v1","M":"SaveSchedule","A":["36-6f-92-ff-fe-00-b2-b4",{"ObjectId":"c8b790d9-a153-4a00-b028-ef2235304053","Name":"Cool","Type":"Cool","Daily":[{"Days":["Monday","Tuesday","Wednesday","Thursday","Friday"],"Steps":[{"Time":"00:00:00","Cool":{"F":48}},{"Time":"06:00:00","Cool":{"F":75}},{"Time":"17:00:00","Cool":{"F":75}},{"Time":"22:00:00","Cool":{"F":78}}]},{"Days":["Saturday","Sunday"],"Steps":[{"Time":"06:00:00","Cool":{"F":75}},{"Time":"08:00:00","Cool":{"F":83}},{"Time":"17:00:00","Cool":{"F":75}},{"Time":"22:00:00","Cool":{"F":78}}]}]}],"I":13}
+                      
+                      {"H":"thermostat-v1","M":"SaveSchedule","A":["36-6f-92-ff-fe-00-b2-b4",{"ObjectId":"c8b790d9-a153-4a00-b028-ef2235304053","Name":"Cool","Type":"Cool","Daily":[{"Days":["Monday","Wednesday","Friday"],"Steps":[{"Time":"00:00:00","Cool":{"F":48}},{"Time":"06:00:00","Cool":{"F":75}},{"Time":"17:00:00","Cool":{"F":75}},{"Time":"22:00:00","Cool":{"F":78}}]},{"Days":["Tuesday","Thursday","Saturday","Sunday"],"Steps":[{"Time":"06:00:00","Cool":{"F":75}},{"Time":"08:00:00","Cool":{"F":83}},{"Time":"17:00:00","Cool":{"F":75}},{"Time":"22:00:00","Cool":{"F":78}}]}]}],"I":14}
+                      
+                      {"H":"thermostat-v1","M":"SaveSchedule","A":["36-6f-92-ff-fe-00-b2-b4",{"Name":"I like it haute","Type":"Auto","Daily":[{"Days":["Monday","Tuesday","Wednesday","Thursday","Friday"],"Steps":[{"Time":"07:00:00","Heat":{"F":65},"Cool":{"F":75}}]},{"Days":["Saturday","Sunday"],"Steps":[{"Time":"07:00:00","Heat":{"F":65},"Cool":{"F":75}}]}]}],"I":33}
+                      
+                      {"H":"thermostat-v1","M":"SaveSchedule","A":["36-6f-92-ff-fe-00-b2-b4",{"ObjectId":"395e1cfb-ec83-4e86-86db-c27d9e0516f8","Name":"I like it haute","Type":"Auto","Daily":[{"Days":["Monday","Tuesday","Wednesday","Friday"],"Steps":[{"Time":"07:00:00","Heat":{"F":97},"Cool":{"F":99}},{"Time":"09:00:00","Heat":{"F":45},"Cool":{"F":47}}]},{"Days":["Saturday","Sunday"],"Steps":[{"Time":"07:00:00","Heat":{"F":65},"Cool":{"F":75}},{"Time":"07:45:00","Heat":{"F":86},"Cool":{"F":88}}]},{"Days":["Thursday"],"Steps":[{"Time":"07:00:00","Heat":{"F":65},"Cool":{"F":75}}]}]}],"I":37}
+                      
+    PUT-change zip        {"Icd":"36-6f-92-ff-fe-00-b2-b4","PostalCode":"12345","CountryCode":"US","DeviceName":"Team 19","ContractorId":0,"TimeZone":"Central Standard Time"}
+    Put-change name	  {"Icd":"36-6f-92-ff-fe-00-b2-b4","PostalCode":"12345","CountryCode":"US","DeviceName":"FooBarBuzzKill","ContractorId":0,"TimeZone":"Hawaiian Standard Time"}
+    PUT-change timezone   {"Icd":"36-6f-92-ff-fe-00-b2-b4","PostalCode":"12345","CountryCode":"US","DeviceName":"FooBarBuzzKill","ContractorId":0,"TimeZone":"Hawaiian Standard Time"}
+    PUT-change country CA {"Icd":"36-6f-92-ff-fe-00-b2-b4","PostalCode":"M4B 1B3","CountryCode":"CA","DeviceName":"FooBarBuzzKill","ContractorId":0,"TimeZone":"Newfoundland Standard Time"}
+    
+                      
+                      
