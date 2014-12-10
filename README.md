@@ -3,6 +3,4 @@ HomeMakerKit
 
 
 
-// TODO Turn off the thermostat when the carbon monoxide detector goes off. 
-
-So I leave and you guys get it fixed? - Joe
+An attempt to make the Emerson Electric "Sensi" thermostat work with open hardware. 
